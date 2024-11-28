@@ -4,6 +4,7 @@ import { HiMiniBars3BottomRight } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import "../App.css";
 import { useGifState } from "../context/GifContext";
+import GifSearch from "./GifSearch";
 
 function Header() {
   const [categories, setCategories] = useState([]);
@@ -21,7 +22,7 @@ function Header() {
   }, []);
 
   return (
-    <nav className="px-10">
+    <nav>
       <div className="relative flex gap-4 items-center justify-between mb-2">
         <Link to="/" className="flex gap-2">
           <img src="/logo.svg" alt="Giphy Logo" className="w-8" />
@@ -31,7 +32,7 @@ function Header() {
         </Link>
 
         <div className="flex gap-4 justify-center items-center text-md font-bold">
-          {/* render gradient */}
+          {/* Top 5 Categories */}
           {categories?.slice(0, 5)?.map((category) => (
             <Link
               key={category.name}
@@ -91,7 +92,7 @@ function Header() {
         )}
       </div>
 
-      {/* Search */}
+      <GifSearch />
     </nav>
   );
 }
