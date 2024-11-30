@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import AppLayout from "./Layout/AppLayout";
-import { Categories, Favourites, GifPage, Home, SearchPage } from "./Pages";
+import { Categories, Favourites, Home, SearchPage, SingleGif } from "./Pages";
 import GifProvider from "./context/GifContext";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
     createRoutesFromElements(
       <Route element={<AppLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/:type/:slug" element={<GifPage />} />
+        <Route path="/:type/:slug" element={<SingleGif />} />
         <Route path="/:category" element={<Categories />} />
         <Route path="/search/:query" element={<SearchPage />} />
         <Route path="/favourites" element={<Favourites />} />
