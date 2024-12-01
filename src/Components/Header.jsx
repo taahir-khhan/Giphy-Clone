@@ -6,9 +6,9 @@ import "../App.css";
 import { useGifState } from "../context/GifContext";
 import GifSearch from "./GifSearch";
 
-function Header() {
+function Header({}) {
   const [categories, setCategories] = useState([]);
-  const [showCategories, setShowCategories] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const { gf, favourites } = useGifState();
 
@@ -44,11 +44,11 @@ function Header() {
           ))}
 
           {/* Show Categories Icon */}
-          <button onClick={() => setShowCategories(!showCategories)}>
+          <button onClick={() => setIsHovered(!isHovered)}>
             <HiOutlineDotsVertical
               size={35}
               className={`py-0.5 hover:gradient border-b-4 hidden lg:block ${
-                showCategories ? "gradient" : ""
+                isHovered ? "gradient" : ""
               }`}
             />
           </button>
@@ -57,7 +57,7 @@ function Header() {
           {favourites.length > 0 && (
             <div className="bg-gray-700 px-6 cursor-pointer rounded h-10 flex items-center">
               <Link to="/favourites" className="">
-                Favourite GIFs
+                Fav.. GIFs
               </Link>
             </div>
           )}
@@ -67,12 +67,13 @@ function Header() {
             <HiMiniBars3BottomRight
               size={30}
               className="text-sky-500 block lg:hidden"
+              onClick={() => setIsHovered(!isHovered)}
             />
           </button>
         </div>
 
         {/* More Categories */}
-        {showCategories && (
+        {isHovered && (
           <div className="absolute right-0 top-14 px-10 pt-6 w-full gradient z-20 pb-5 rounded-lg">
             <span className="text-3xl font-extrabold ">Categories</span>
             <hr className="bg-gray-100 opacity-50 my-5" />

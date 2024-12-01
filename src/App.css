@@ -6,4 +6,7 @@
   .gradient {
     @apply bg-gradient-to-r from-teal-600 via-blue-600 to-pink-600;
   }
+  .devider {
+    @apply h-0.5 my-4 w-full bg-gray-800;
+  }
 }
