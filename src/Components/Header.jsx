@@ -66,7 +66,9 @@ function Header({}) {
           <button>
             <HiMiniBars3BottomRight
               size={30}
-              className="text-sky-500 block lg:hidden"
+              className={`block lg:hidden ${
+                isHovered ? "text-blue-50" : "text-blue-700"
+              } transition-colors duration-200`}
               onClick={() => setIsHovered(!isHovered)}
             />
           </button>
