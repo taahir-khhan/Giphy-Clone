@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { useGifState } from "../context/GifContext";
 
 function Gif({ gif, hover = true }) {
-  const [isHovered, setIsHovered] = useState(false);
   const { addToFavourites, favourites, setMessage } = useGifState();
 
   const shareGif = (e) => {
@@ -27,11 +26,7 @@ function Gif({ gif, hover = true }) {
 
   return (
     <Link to={`/${gif.type}s/${gif.slug}`}>
-      <div
-        className="w-full mb-2 relative cursor-pointer group aspect-video"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
+      <div className="w-full mb-2 relative cursor-pointer group aspect-video">
         <img
           src={gif?.images?.fixed_width.webp}
           alt={gif?.title}
@@ -48,8 +43,9 @@ function Gif({ gif, hover = true }) {
             <span>{gif?.user?.display_name}</span>
           </div>
         )}
-        {isHovered && hover && (
-          <div className="absolute top-1 right-1 flex gap-4 items-center bg-gradient-to-tr from-gray-900 via-gray-700 to-black p-2 rounded">
+
+        {hover && (
+          <div className="absolute top-1 right-1 flex gap-4 items-center opacity-0 group-hover:opacity-100 bg-gradient-to-tr from-gray-900 via-gray-700 to-black p-2 rounded">
             <HiMiniHeart
               size={20}
               onClick={(e) => {

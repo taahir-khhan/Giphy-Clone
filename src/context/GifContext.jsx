@@ -29,7 +29,7 @@ const GifProvider = ({ children }) => {
       setMessage("Gif is removed from Favourites");
       setTimeout(() => {
         setMessage("");
-      }, 500);
+      }, 800);
     } else {
       // If item is not in favourites, add it
       const updatedFavourites = [...favourites, id];
@@ -39,7 +39,7 @@ const GifProvider = ({ children }) => {
       setMessage("Gif is added to Favourites");
       setTimeout(() => {
         setMessage("");
-      }, 500);
+      }, 800);
     }
   };
 

@@ -152,26 +152,33 @@ function SingleGif() {
             <Gif gif={gif} hover={false} />
 
             {/* Mobile UI */}
-            <div className="flex gap-1 sm:hidden">
-              <img
-                src={gif?.user?.avatar_url}
-                alt={gif?.user?.display_name}
-                className="h-14"
-              />
-              <div className="px-2">
-                <div className="font-extrabold text-xl">
-                  {gif?.user?.display_name}
-                </div>
-                <div className="text-gray-500">
-                  {gif?.user
-                    ? `@${gif?.user?.username}`
-                    : "@User not Available"}
+            <div className="flex my-4 items-center justify-between sm:hidden">
+              <div className="flex gap-1 items-center">
+                <img
+                  src={gif?.user?.avatar_url}
+                  alt={gif?.user?.display_name}
+                  className="h-14"
+                />
+                <div className="px-2">
+                  <div className="font-medium">{gif?.user?.display_name}</div>
+                  <div className="text-gray-500">
+                    {gif?.user
+                      ? `@${gif?.user?.username}`
+                      : "@User not Available"}
+                  </div>
                 </div>
               </div>
 
-              <button className="ml-auto">
-                <FaPaperPlane size={25} />
-              </button>
+              <div className="flex gap-4 items-center ">
+                <FaPaperPlane size={25} onClick={shareGif} />
+                <HiMiniHeart
+                  size={25}
+                  onClick={() => addToFavourites(gif.id)}
+                  className={`${
+                    favourites.includes(gif.id) ? "text-red-600" : ""
+                  }`}
+                />
+              </div>
             </div>
           </div>
 
@@ -209,7 +216,7 @@ function SingleGif() {
 
         <div className="mt-4">
           <span className="font-extrabold text-xl">Related Gif's</span>
-          <div className="columns-2 md:columns-3 gap-2 mt-4">
+          <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-2 mt-4">
             {relatedGifs.map((gif) => (
               <Gif gif={gif} key={gif.id} />
             ))}
