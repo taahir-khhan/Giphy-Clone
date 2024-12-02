@@ -1,13 +1,29 @@
 import React, { useState } from "react";
-import { HiOutlineExternalLink } from "react-icons/hi";
+import { FaPaperPlane } from "react-icons/fa6";
 import { HiMiniHeart } from "react-icons/hi2";
-import { IoMdDownload } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useGifState } from "../context/GifContext";
 
 function Gif({ gif, hover = true }) {
   const [isHovered, setIsHovered] = useState(false);
-  const { addToFavourites, favourites } = useGifState();
+  const { addToFavourites, favourites, setMessage } = useGifState();
+
+  const shareGif = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    navigator.clipboard
+      .writeText(
+        `https://media.giphy.com/media/${gif.id}/giphy.gif
+`
+      )
+      .then(() => setMessage("Link is Copied to clipboard!"))
+      .catch(() => setMessage("Failed to copy!"));
+
+    setTimeout(() => {
+      setMessage("");
+    }, 3000);
+  };
 
   return (
     <Link to={`/${gif.type}s/${gif.slug}`}>
@@ -47,6 +63,8 @@ function Gif({ gif, hover = true }) {
                   : ""
               }`}
             />
+
+            <FaPaperPlane size={15} onClick={shareGif} />
           </div>
         )}
       </div>

@@ -15,12 +15,14 @@ function SearchPage() {
       type: filter,
       limit: 20,
     });
+    console.log(data);
+
     setSearchResults(data);
   };
 
   useEffect(() => {
     fetchSearchResults();
-  }, [filter]);
+  }, [filter, query]);
 
   return (
     <div className="my-4">

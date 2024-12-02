@@ -13,7 +13,7 @@ function Favourites() {
 
   useEffect(() => {
     fecthFavouriteGifs();
-  }, []);
+  }, [fecthFavouriteGifs]);
 
   console.log(favouriteGifs);
 

@@ -15,11 +15,10 @@ const contentType = ["gifs", "stickers", "texts"];
 
 function SingleGif() {
   const { type, slug } = useParams();
-  const { gf, favourites, addToFavourites } = useGifState();
+  const { gf, favourites, addToFavourites, setMessage } = useGifState();
   const [gif, setGif] = useState({});
   const [relatedGifs, setRelatedGifs] = useState([]);
   const [readMore, setReadMore] = useState(false);
-  const [message, setMessage] = useState("");
 
   const shareGif = () => {
     navigator.clipboard
@@ -82,11 +81,6 @@ function SingleGif() {
 
   return (
     <div className="grid grid-cols-4 my-10 gap-4 relative">
-      {message.length > 0 && (
-        <div className="absolute right-5 top-[-30px] px-4 py-2 rounded font-bold gradient">
-          {message}
-        </div>
-      )}
       <div className="hidden sm:block">
         <>
           <div className="flex gap-1 items-center">

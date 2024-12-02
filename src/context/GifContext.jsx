@@ -7,28 +7,41 @@ const GifProvider = ({ children }) => {
   const [gifs, setGifs] = useState([]);
   const [filter, setFilter] = useState("gifs");
   const [favourites, setFavourites] = useState([]);
+  const [message, setMessage] = useState("");
 
   const gf = new GiphyFetch(import.meta.env.VITE_GIPHY_KEY);
 
+  // Initialize favourites from localStorage on component mount
+  useEffect(() => {
+    const storedFavourites =
+      JSON.parse(localStorage.getItem("favouriteGifs")) || [];
+    console.log("Favourites loaded from localStorage:", storedFavourites);
+    setFavourites(storedFavourites);
+  }, []);
+
   const addToFavourites = (id) => {
     if (favourites.includes(id)) {
-      // If the item is already present remove it
+      // If the item is already present, remove it
       const updatedFavourites = favourites.filter((itemId) => itemId !== id);
       localStorage.setItem("favouriteGifs", JSON.stringify(updatedFavourites));
       setFavourites(updatedFavourites);
+
+      setMessage("Gif is removed from Favourites");
+      setTimeout(() => {
+        setMessage("");
+      }, 500);
     } else {
-      // If item is not there in favourite then add it.
-      const updatedFavourites = [...favourites];
-      updatedFavourites.push(id);
+      // If item is not in favourites, add it
+      const updatedFavourites = [...favourites, id];
       localStorage.setItem("favouriteGifs", JSON.stringify(updatedFavourites));
       setFavourites(updatedFavourites);
+
+      setMessage("Gif is added to Favourites");
+      setTimeout(() => {
+        setMessage("");
+      }, 500);
     }
   };
-
-  useEffect(() => {
-    const favourites = JSON.parse(localStorage.getItem("favouriteGifs")) || [];
-    setFavourites(favourites);
-  }, []);
 
   return (
     <GifContext.Provider
@@ -41,6 +54,8 @@ const GifProvider = ({ children }) => {
         favourites,
         setFavourites,
         addToFavourites,
+        setMessage,
+        message,
       }}
     >
       {children}
