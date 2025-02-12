@@ -1,5 +1,7 @@
 # 🎥 **Giphy Clone**
 
+**[Live Demo](https://giphy-clone-hazel.vercel.app/)**
+
 **Giphy Clone** is a modern, feature-packed web application that reimagines how users explore and interact with GIFs. Built with ReactJS and powered by the **Giphy API**, this platform offers a seamless experience for discovering, organizing, and sharing GIFs, stickers, and text-based content. Whether you’re looking for trending content or building a personalized collection, this app delivers speed, elegance, and functionality.
 
 ---
