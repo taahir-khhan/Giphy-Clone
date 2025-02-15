@@ -63,6 +63,20 @@ _Search for specific GIFs, stickers, or text templates._
 
 ---
 
+## 📱 **Responsive Design (Mobile UI)**
+
+The application is fully optimized for mobile devices, ensuring a seamless user experience on smaller screens. Here are some screenshots of the mobile UI:
+
+| **Home**                                                  | **Header**                                                    | **Stickers**                                                        |
+| --------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------- |
+| ![Mobile Home Page](./src/screenshots/mobile-UI/Home.png) | ![Mobile Header Page](./src/screenshots/mobile-UI/Header.png) | ![Mobile Collection Page](./src/screenshots/mobile-UI/Stickers.png) |
+
+| **Search**                                                    | **Single GIF**                                                       | **Category**                                                      |
+| ------------------------------------------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| ![Mobile Search Page](./src/screenshots/mobile-UI/Search.png) | ![Mobile Single GIF Page](./src/screenshots/mobile-UI/SingleGif.png) | ![Mobile Category Page](./src/screenshots/mobile-UI/Category.png) |
+
+---
+
 ## 🎥 **Video Walkthrough**
 
 Watch the full demo on LinkedIn to see the project in action:  
