@@ -80,8 +80,7 @@ The application is fully optimized for mobile devices, ensuring a seamless user 
 ## 🎥 **Video Walkthrough**
 
 Watch the full demo on LinkedIn to see the project in action:  
-[![LinkedIn Video Demo](https://img.shields.io/badge/Watch_Full_Video-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/feed/update/urn:li:activity:7269250435545202689/)  
-_Click the badge above to see features like advanced filtering, favorites management, and more!_
+[![LinkedIn Video Demo](https://img.shields.io/badge/Watch_Full_Video-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/feed/update/urn:li:activity:7269250435545202689/)
 
 ---
 
